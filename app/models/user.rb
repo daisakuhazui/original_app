@@ -3,5 +3,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :genres, through: :genre_users
-  has_many :genre_users, :dependent => :destroy
+  has_many :genre_users, dependent: :destroy
 end
