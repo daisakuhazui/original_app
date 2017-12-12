@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20171205055109) do
   end
 
   create_table "genre_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "genre_id"
+    t.bigint "user_id", null: false
+    t.bigint "genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["genre_id"], name: "index_genre_users_on_genre_id"
@@ -33,8 +33,6 @@ ActiveRecord::Schema.define(version: 20171205055109) do
 
   create_table "genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
