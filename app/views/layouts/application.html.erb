@@ -17,7 +17,7 @@
             <li><%= link_to "Home", '#'%></li>
 
             <% if signed_in? %>
-              <li><%= link_to "Question", '#'%></li>
+              <li><%= link_to "Question", question_path %></li>
               <li><%= link_to "Notice", '#' %></li>
               <!-- FIXME -->
               <!-- ドロップダウンにする場所ここから -->
