@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
+  resources :questions
   root to: 'question#index'
-  get 'question/new'
-  get 'question/index'
   devise_for :users
 end
