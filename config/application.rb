@@ -10,6 +10,9 @@ module OriginalApp
 
     config.generators do |g|
       g.test_framework false
+      g.helper false
+      g.javascripts false
+      g.stylesheets false
     end
   end
 end
