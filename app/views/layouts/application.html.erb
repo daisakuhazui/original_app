@@ -3,11 +3,9 @@
   <head>
     <title>OriginalApp</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
       <div class="container">
@@ -15,11 +13,9 @@
         <nav>
           <ul>
             <li><%= link_to "Home", '#'%></li>
-
             <% if signed_in? %>
               <li><%= link_to "Question", question_path %></li>
-              <li><%= link_to "Notice", '#' %></li>
-              <!-- FIXME -->
+              <li><%= link_to "Notice", '#' %></li><!-- FIXME -->
               <!-- ドロップダウンにする場所ここから -->
               <li><%= link_to "Profile", '#' %></li>
               <li><%= link_to "Setting", '#' %></li>
@@ -29,15 +25,12 @@
               <% else %>
               <li><%= link_to "Sign in", new_user_session_path %></li>
             <% end %>
-
           </ul>
         </nav>
       </div>
     </header>
-
     <div class="container">
       <%= yield %>
     </div>
   </body>
-
 </html>
