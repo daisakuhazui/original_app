@@ -12,13 +12,14 @@
         <%= link_to "OriginalApp", root_path %>
         <nav>
           <ul>
-            <li><%= link_to "Home", '#'%></li>
+            <li><%= link_to "Home", root_path %></li>
             <% if signed_in? %>
-              <li><%= link_to "Question", question_path %></li>
+              <li><%= link_to "Question", questions_path %></li>
               <li><%= link_to "Notice", '#' %></li><!-- FIXME -->
               <!-- ドロップダウンにする場所ここから -->
-              <li><%= link_to "Profile", '#' %></li>
-              <li><%= link_to "Setting", '#' %></li>
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Update profile", edit_user_path(current_user) %></li>
+              <li><%= link_to "Setting", edit_user_password_path(current_user) %></li>
               <li> <%= link_to "Sign out", destroy_user_session_path, method: "delete" %> </li>
               <!-- ドロップダウンにする場所ここまで  -->
               <li><%= link_to "Ask Question", '#' %></li><!-- クリックすると画面上に投稿フォーマットが浮かび上がるようにする -->
