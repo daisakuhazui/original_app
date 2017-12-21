@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
+  before_action :set_user
+
   def show
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       # この後、updateが成功したらflashメッセージが出るようにする
     else
@@ -13,12 +13,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
 private
 
     def user_params
       params.require(:user).permit(:email, :alias_name, :name, :profile_image, :cover_image, :area, :introduce )
+    end
+
+    def set_user
+      @user = User.find(params[:id])
     end
 end
