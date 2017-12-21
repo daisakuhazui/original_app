@@ -1,4 +1,4 @@
-<%= provide(:tiele,"Update your profile") %>
+<%= provide(:tiele, "Update your profile") %>
 <h1>Update your profile</h1>
 
 <!-- FIXME -->
@@ -6,7 +6,7 @@
 <div>
   <%= form_for(@user) do |f| %>
 
-  <div><%= f.label :alias_name%> : <%= @user.alias_name %></div>
+  <div><%= f.label :alias_name %> : <%= @user.alias_name %></div>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
