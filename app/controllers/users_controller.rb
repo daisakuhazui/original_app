@@ -4,21 +4,30 @@ class UsersController < ApplicationController
   def show
   end
 
-  def update
-    if @user.update_attributes(user_params)
-      # この後、updateが成功したらflashメッセージが出るようにする
-    else
-      render 'edit'
-    end
+  def edit
   end
 
-  def edit
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to({ action: 'edit' }, notice: 'Profile update succeeded !' )
+    else
+      flash.now[:error] = 'Profile update failed '
+      render :edit
+    end
   end
 
 private
 
     def user_params
-      params.require(:user).permit(:email, :alias_name, :name, :profile_image, :cover_image, :area, :introduce )
+      params.require(:user).permit(
+                                    :email,
+                                    :alias_name,
+                                    :name,
+                                    :profile_image,
+                                    :cover_image,
+                                    :area,
+                                    :introduce
+                                  )
     end
 
     def set_user
