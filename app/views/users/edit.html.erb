@@ -5,6 +5,15 @@
 <!-- Bootstrapで以下をリスト形式の表示に直す -->
 <div>
   <%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :cover_image %>
+  <%= image_tag @user.cover_image.url if @user.cover_image? %>
+  <%= f.file_field :cover_image %>
+
+  <%= f.label :profile_image %>
+  <%= image_tag @user.profile_image.url if @user.profile_image? %>
+  <%= f.file_field :profile_image %>
 
   <div><%= f.label :alias_name %> : <%= @user.alias_name %></div>
 
