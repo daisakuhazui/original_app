@@ -1,7 +1,7 @@
 class ProfileUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  process :resize_to_limit => [200, 200]
-  process :convert => 'jpg'
+  process resize_to_limit: [200, 200]
+  process convert: 'jpg'
 
   def extension_white_list
     %w(jpg jpeg gif png)
