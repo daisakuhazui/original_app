@@ -1,8 +1,7 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
-
-      t.string :email,              null: false #後からdefaultオプションを追加する
+      t.string :email,              null: false # 後からdefaultオプションを追加する
       t.string :encrypted_password, null: false
 
       t.string   :reset_password_token
@@ -18,8 +17,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       t.string :alias_name, null: false
       t.string :name, null: false
-      t.text :profile_image #後からdefaultオプションを追加する
-      t.text :cover_image #後からdefaultオプションを追加する
+      t.text :profile_image # 後からdefaultオプションを追加する
+      t.text :cover_image # 後からdefaultオプションを追加する
       t.string :area
       t.text :introduce
 

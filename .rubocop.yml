@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - db/migrate/*
+    - vendor/**/*
+
+Rails:
+  Enabled: true
+Style/Documentation:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/SymbolArray:
+  EnforcedStyle: brackets
+Style/EmptyMethod:
+  EnforcedStyle: expanded

@@ -2,5 +2,5 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :question
 
-  has_many :pictures, as: :imageable
+  has_many :pictures, as: :imageable, dependent: :destroy
 end
