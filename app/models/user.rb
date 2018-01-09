@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, ProfileUploader
   mount_uploader :cover_image, CoverUploader
+
+  acts_as_followable
+  acts_as_follower
 end
