@@ -7,6 +7,9 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def follow
+  end
+
   def update
     if @user.update_attributes(user_params)
       redirect_to({ action: "edit" }, notice: "Profile update succeeded !")
