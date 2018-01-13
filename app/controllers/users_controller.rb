@@ -2,12 +2,12 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
+    @user ||= current_user
+    @follow_user = current_user.follows.build(followable_id: @user.id, follower_id: :current_user)
+    @unfollow_user = current_user.follows.find_by(followable_id: @user.id)
   end
 
   def edit
-  end
-
-  def follow
   end
 
   def update
