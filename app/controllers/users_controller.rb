@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     if signed_in?
       @follow_user = current_user.follows.build(followable_id: @user.id, follower_id: :current_user)
       @unfollow_user = current_user.follows.find_by(followable_id: @user.id)
-
     end
   end
 
