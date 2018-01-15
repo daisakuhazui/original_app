@@ -1,2 +1,2 @@
-<%= @user.follow_count %>following
-<%= @user.followers_count %>followers
+<%= link_to "#{@user.follow_count}", show_following_user_path %>following
+<%= link_to "#{@user.followers_count}", show_followers_user_path %>followers
