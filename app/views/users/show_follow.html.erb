@@ -1,0 +1,9 @@
+<% provide(:title, @title) %>
+<% if @users.any? %>
+  <% @users.each do |user| %>
+    <p><%= user.profile_image %></p>
+    <p><%= user.name %></p>
+    <p><%= user.alias_name %></p>
+    <p><%= user.introduce %></p>
+  <% end %>
+<% end %>
