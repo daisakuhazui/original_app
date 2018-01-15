@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
+    if signed_in?
+      @follow_user = current_user.follows.build(followable_id: @user.id, follower_id: :current_user)
+      @unfollow_user = current_user.follows.find_by(followable_id: @user.id)
+    end
   end
 
   def edit
@@ -14,6 +18,18 @@ class UsersController < ApplicationController
       flash.now[:error] = "Profile update failed "
       render :edit
     end
+  end
+
+  def show_following
+    @title = "Following"
+    @users = @user.all_following
+    render "show_follow"
+  end
+
+  def show_followers
+    @title = "Followers"
+    @users = @user.followers
+    render "show_follow"
   end
 
   private

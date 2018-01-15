@@ -14,3 +14,7 @@
   <% end %>
 </div>
 <!-- ユーザーが投稿した質問もタイムライン形式で表示させる -->
+<%= render 'shared/stats' %>
+<% if signed_in? %>
+<%= render 'users/follow_form' unless current_user.id == @user.id %>
+<% end %>
