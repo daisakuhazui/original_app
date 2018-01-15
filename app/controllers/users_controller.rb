@@ -20,6 +20,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def show_following
+    @title = "Following"
+    @users = @user.all_following
+    render "show_follow"
+  end
+
+  def show_followers
+    @title = "Followers"
+    @users = @user.followers
+    render "show_follow"
+  end
+
   private
 
   def user_params
