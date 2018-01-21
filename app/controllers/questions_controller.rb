@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @question = current_user.questions.find_by(id: params[:id])
     @question.destroy
     flash[:success] = "Question deleted"
     redirect_to request.referrer || root_url
@@ -30,10 +31,5 @@ class QuestionsController < ApplicationController
   def set_question
     @user = User.find(current_user.id)
     @question = current_user.questions.build(user_id: @user.id)
-  end
-
-  def correct_user
-    @question = current_user.questions.find_by(id: params[:id])
-    redirect_to root_url if @question.nil?
   end
 end
