@@ -1,0 +1,8 @@
+<%= image_tag question.user.profile_image, size: 50 %>
+<%= link_to question.user.name, question.user %>
+@ <%= question.user.alias_name %>
+<%= question.content %>
+Posted <%= time_ago_in_words(question.created_at) %> ago.
+<% if current_user == question.user %>
+  <%= link_to "delete", question_path(question), method: :delete, data:{confirm: "You sure?"} %>
+<% end %>

@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user
 
   def show
+    @questions = Question.where(user_id: @user.id)
     if signed_in?
       @follow_user = current_user.follows.build(followable_id: @user.id, follower_id: :current_user)
       @unfollow_user = current_user.follows.find_by(followable_id: @user.id)

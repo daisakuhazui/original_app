@@ -1,0 +1,6 @@
+<%= form_for(question, as: :question) do |f| %>
+ <%= f.label :content %>
+  <%= f.text_area :content, placeholder: "Ask Question Now !" %>
+  <%= f.hidden_field :user_id %>
+  <%= f.submit "Ask Question" %>
+<% end %>
