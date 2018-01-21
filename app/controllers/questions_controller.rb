@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, :set_question
-  before_action :correct_user, only: :destroy
 
   def index
   end
@@ -16,10 +15,14 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = current_user.questions.find_by(id: params[:id])
-    @question.destroy
-    flash[:success] = "Question deleted"
-    redirect_to request.referrer || root_url
+    if current_user
+      @question = current_user.questions.find_by(id: params[:id])
+      @question.destroy
+      flash[:success] = "Question deleted"
+      redirect_to request.referrer || root_url
+    else
+      redirect_to roo_url
+    end
   end
 
   private
