@@ -1,4 +1,4 @@
 <h1>Questions#index</h1>
 <p>Find me in app/views/questions/index.html.erb</p>
   <%= render partial: 'shared/question_form', locals: {question: @question} %>
-  <%= render partial: 'shared/feed' %>
+  <%= render partial: 'shared/feed', locals: {feed_items: @feed_items} %>
