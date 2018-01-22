@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :questions, inverse_of: :user, dependent: :destroy
+  has_many :questions, dependent: :destroy
   has_many :genres, through: :genre_users, inverse_of: :user
   has_many :genre_users, dependent: :destroy
 
