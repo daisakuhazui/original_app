@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
   has_many :genres, through: :genre_users, inverse_of: :user
   has_many :genre_users, dependent: :destroy
 
