@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
 
   def new
     @question = Question.find(params[:id])
-    @answer = current_user.answers.build(user_id: current_user.id, question_id: @question.id)
+    @answer = current_user.answers.build(question_id: @question.id)
     @feed_answers_items = @question.feed_answers
   end
 
