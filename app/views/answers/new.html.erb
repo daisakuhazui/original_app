@@ -1,0 +1,15 @@
+<h1>Answers#new</h1>
+<%= image_tag @question.user.profile_image, size: 50 %>
+<%= link_to @question.user.name, @question.user %> @ <%= @question.user.alias_name %>
+<%= @question.content %>
+Posted <%= time_ago_in_words(@question.created_at) %> ago.
+
+<%= form_for(@answer) do |f| %>
+  Your Answer
+  <%= f.text_area :content, placeholder: "Post your answer !" %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :question_id %>
+  <%= f.submit "Post answer" %>
+<% end %>
+
+<%= render partial: 'shared/feed_answers', locals: { feed_answers_items: @feed_answers_items } %>

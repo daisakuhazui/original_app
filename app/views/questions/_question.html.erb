@@ -5,4 +5,6 @@
 Posted <%= time_ago_in_words(question.created_at) %> ago.
 <% if current_user == question.user %>
   <%= link_to "delete", question_path(question), method: :delete, data:{confirm: "You sure?"} %>
+<% else %>
+  <%= link_to "answer", controller: "answers", action: "new", id: question.id %>
 <% end %>
