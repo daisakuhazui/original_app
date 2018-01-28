@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
   end
   resources :follows, only: [:index, :create, :destroy]
-  resources :answers, only: [:new, :create, :show]
+  resources :answers, only: [:new, :create, :destroy]
 end
