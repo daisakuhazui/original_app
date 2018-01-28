@@ -3,3 +3,6 @@
 @ <%= answer.user.alias_name %>
 <%= answer.content %>
 Posted <%= time_ago_in_words(answer.created_at) %> ago.
+<%if current_user == answer.user %>
+  <%= link_to "delete", answer_path(answer), method: :delete, data:{confirm: "You sure?"} %>
+<% end %>
