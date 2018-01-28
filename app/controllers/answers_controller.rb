@@ -17,6 +17,17 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    if current_user
+      @answer = current_user.answers.find_by(id: params[:id])
+      @answer.destroy
+      flash[:success] = "Answer deleted"
+      redirect_to request.referrer || root_url
+    else
+      redirect_to roo_url
+    end
+  end
+
   private
 
   def answer_params
