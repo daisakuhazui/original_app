@@ -13,6 +13,7 @@ class AnswersController < ApplicationController
       flash[:success] = "Your answer posted!"
       redirect_to root_url
     else
+      flash[:error] = "Your answer NOT posted...!!"
       render 'answers/new'
     end
   end
