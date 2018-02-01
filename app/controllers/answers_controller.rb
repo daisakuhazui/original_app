@@ -25,6 +25,7 @@ class AnswersController < ApplicationController
       flash[:success] = "Answer deleted"
       redirect_to request.referrer || root_url
     else
+      flash[:error] = "Answer NOT deleted...!"
       redirect_to roo_url
     end
   end
