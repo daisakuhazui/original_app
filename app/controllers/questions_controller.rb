@@ -11,6 +11,7 @@ class QuestionsController < ApplicationController
       flash[:success] = "Question created!"
       redirect_to root_url
     else
+      flash[:error] = "Question NOT created...!"
       render 'questions/index'
     end
   end
@@ -22,7 +23,8 @@ class QuestionsController < ApplicationController
       flash[:success] = "Question deleted"
       redirect_to request.referrer || root_url
     else
-      redirect_to roo_url
+      flash[:error] = "Question NOT deleted...!"
+      redirect_to root_url
     end
   end
 

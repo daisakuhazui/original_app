@@ -18,7 +18,6 @@
             <li><%= link_to "Home", root_path %></li>
             <% if signed_in? %>
               <li><%= link_to "Question", questions_path %></li>
-              <li><%= link_to "Notice", '#' %></li><!-- FIXME -->
               <!-- ドロップダウンにする場所ここから -->
               <li><%= link_to "Profile", current_user %></li>
               <li><%= link_to "Update profile", edit_user_path(current_user) %></li>
