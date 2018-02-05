@@ -5,15 +5,14 @@
 <p><%= @user.alias_name %></p>
 <p><%= @user.area %></p>
 <p><%= @user.introduce %></p>
-<div>
-  <% if @user.genre_users.any? %>
-    <p><%= @user.name %>'s Genres</p>
-      <ol class="genre_users" >
-        <!-- FIXME 後のブランチにてユーザーが登録したジャンルが表示されるようにする -->
-      </ol>
-  <% end %>
-</div>
-<!-- ユーザーが投稿した質問もタイムライン形式で表示させる -->
+
+<p><%= render 'users/tag_list', tag_list: @user.skill_list %></p>
+<p><%= render 'users/tag_list', tag_list: @user.interest_list %></p>
+
+<% if current_user == @user %>
+  <p><%= link_to "Update profile", edit_user_path(current_user) %></p>
+<% end %>
+
 <%= render 'shared/stats' %>
 <% if signed_in? %>
 <%= render 'users/follow_form' unless current_user.id == @user.id %>

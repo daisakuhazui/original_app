@@ -13,6 +13,8 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_follower
 
+  acts_as_taggable_on :skills, :interests
+
   def feed
     following_ids = "SELECT followable_id FROM follows WHERE follower_id = :user_id"
     Question.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)

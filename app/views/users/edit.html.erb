@@ -28,6 +28,13 @@
 
   <%= f.label :introduce %>
   <%= f.text_area :introduce %>
+
+  <%= f.label :skill_list, "Skills" %>
+  <%= text_field_tag 'user[skill_list]', @user.skill_list.join(',') %>
+
+  <%= f.label :interest_list, "Interests" %>
+  <%= text_field_tag 'user[interest_list]', @user.interest_list.join(',') %>
+
   <!-- リスト形式ここまで -->
 
   <%= f.submit "Update profile" %>

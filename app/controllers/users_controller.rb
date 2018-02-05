@@ -43,7 +43,9 @@ class UsersController < ApplicationController
       :profile_image,
       :cover_image,
       :area,
-      :introduce
+      :introduce,
+      :skill_list,
+      :interest_list,
     )
   end
 
