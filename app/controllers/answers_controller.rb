@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     if @answer.save
       flash[:success] = "Your answer posted!"
-      redirect_to root_url
+      redirect_to request.referrer || root_url
     else
       flash[:error] = "Your answer NOT posted...!!"
       render 'answers/new'
