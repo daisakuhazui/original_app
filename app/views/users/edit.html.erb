@@ -1,42 +1,52 @@
 <%= provide(:tiele, "Update your profile") %>
-<h1>Update your profile</h1>
+<h1>Update <%= @user.name %>'s Profile</h1>
 
 <!-- FIXME -->
 <!-- Bootstrapで以下をリスト形式の表示に直す -->
-<div>
+
   <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :cover_image %>
-  <%= image_tag @user.cover_image.url if @user.cover_image? %>
-  <%= f.file_field :cover_image %>
+      <h3><%= f.label :cover_image %></h3>
+      <%= image_tag @user.cover_image.url if @user.cover_image? %>
+      <%= f.file_field :cover_image %></br>
 
-  <%= f.label :profile_image %>
-  <%= image_tag @user.profile_image.url if @user.profile_image? %>
-  <%= f.file_field :profile_image %>
+      <h3><%= f.label :profile_image %></h3>
+      <%= image_tag @user.profile_image.url if @user.profile_image? %>
+      <%= f.file_field :profile_image %></br>
 
-  <div><%= f.label :alias_name %> : <%= @user.alias_name %></div>
+      <div class="form-group">
+        <h3><%= f.label :name %></h3>
+        <%= f.text_field :name, class: "form-control" %></br>
+      </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+      <div class="form-group">
+        <h3><%= f.label :email %></h3>
+        <%= f.text_field :email, class: "form-control" %></br>
+      </div>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+      <div class="form-group">
+        <h3><%= f.label :area%></h3>
+        <%= f.text_field :area, class: "form-control" %></br>
+      </div>
 
-  <%= f.label :area%>
-  <%= f.text_field :area %>
+      <div class="form-group">
+        <h3><%= f.label :introduce %></h3>
+        <%= f.text_area :introduce, class: "form-control" %></br>
+      </div>
 
-  <%= f.label :introduce %>
-  <%= f.text_area :introduce %>
+      <div class="form-group">
+        <h3><%= f.label :skill_list, "Skills" %></h3>
+        <%= text_field_tag 'user[skill_list]', @user.skill_list.join(','), class: "form-control" %></br>
+      </div>
 
-  <%= f.label :skill_list, "Skills" %>
-  <%= text_field_tag 'user[skill_list]', @user.skill_list.join(',') %>
-
-  <%= f.label :interest_list, "Interests" %>
-  <%= text_field_tag 'user[interest_list]', @user.interest_list.join(',') %>
+      <div class="form-group">
+        <h3><%= f.label :interest_list, "Interests" %></h3>
+        <%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), class: "form-control" %></br>
+      </div>
 
   <!-- リスト形式ここまで -->
 
-  <%= f.submit "Update profile" %>
+        <%= f.submit "Update Profile", class: "btn btn-primary btn-lg btn-block" %></br>
   <% end %>
-</div>
+
