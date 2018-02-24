@@ -1,4 +1,13 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
-  <%= render partial: 'shared/question_form', locals: { question: @question } %>
-  <%= render partial: 'shared/feed', locals: { feed_items: @feed_items } %>
+<h1>Answer Question</h1>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <% if @user.follow_count == 0 %>
+      <h2>まだフォローしているユーザーがいません...</h2>
+      <%= link_to "フォローするユーザーを見つける", users_path, class: "btn btn-lg btn-primary btn-block" %>
+    <% else %>
+      <div class="feeds">
+        <%= render partial: 'shared/feed', locals: { feed_items: @feed_items } %>
+      </div>
+    <% end %>
+  </div>
+</div>
