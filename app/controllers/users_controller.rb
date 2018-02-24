@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, except: :index
+
+  def index
+    @users = User.all
+  end
 
   def show
     @questions = Question.where(user_id: @user.id)
@@ -14,7 +18,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      redirect_to({ action: "edit" }, notice: "Profile update succeeded !")
+      flash[:success] = "Profile Updated!"
+      redirect_to action: :edit
     else
       flash.now[:error] = "Profile update failed "
       render :edit
