@@ -1,8 +1,8 @@
-Rails.application.routes.draw do
-  resources :questions, only: [:index, :create, :destroy]
-  root to: "questions#index"
+ Rails.application.routes.draw do
+  root to: "questions#new"
+  resources :questions, only: [:new, :index, :create, :destroy]
   devise_for :users
-  resources :users, only: [:show, :update, :edit] do
+  resources :users, only: [:index, :show, :update, :edit] do
     member do
       get "show_following"
       get "show_followers"
