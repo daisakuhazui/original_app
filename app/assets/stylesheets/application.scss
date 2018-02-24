@@ -1,0 +1,147 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/* universal */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h3 {
+  margin-bottom: 5px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+  margin-top: 36px;
+}
+
+.footer,
+.push {
+  height: 50px;
+}
+
+.center {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin: auto;
+  }
+
+.outer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-border {
+  border-top: none;
+  border-left: none;
+  height: 1px;
+  background-color: red;
+  }
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 3.0em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 6px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+/* feeds */
+
+.feeds {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+
+/* questions */
+
+.content {
+  display: block;
+}
+.timestamp {
+  color: $gray-light;
+}
+
+
+
+/* user_profle */
+
+.user_info {
+  margin: 10px 0 10px 0;
+}
+
+.user_profile_image {
+  float: left;
+  margin: 5px 5px 5px 5px;
+}
+
+.cover_image {
+  width: 100%;
+  height: auto;
+}
+
+.profile_image {
+  margin-top: -170px;
+  margin-left: 25px;
+  border: 5px solid #fff;
+  border-radius: 50% 50% 50% 50%;
+  box-shadow: 2px 2px 4px gray;
+}
+
+.user_name {
+  overflow: hidden;
+}
+
+.field {
+  padding-bottom: 5px;
+}
