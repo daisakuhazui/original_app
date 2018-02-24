@@ -3,37 +3,50 @@
   <head>
     <title>OriginalApp</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': true %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <header>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <div class="header bg-dark">
       <div class="container">
-        <%= link_to "OriginalApp", root_path %>
+        <%= link_to "OriginalApp", root_path, id: "logo" %>
         <nav>
-          <ul>
-            <li><%= link_to "Home", root_path %></li>
+          <ul class="nav justify-content-end">
             <% if signed_in? %>
-              <li><%= link_to "Question", questions_path %></li>
-              <!-- ドロップダウンにする場所ここから -->
-              <li><%= link_to "Profile", current_user %></li>
-              <li><%= link_to "Update profile", edit_user_path(current_user) %></li>
-              <li><%= link_to "Setting", edit_user_registration_path(current_user) %></li>
-              <li> <%= link_to "Sign out", destroy_user_session_path, method: "delete" %> </li>
-              <!-- ドロップダウンにする場所ここまで  -->
-              <li><%= link_to "Ask Question", '#' %></li><!-- クリックすると画面上に投稿フォーマットが浮かび上がるようにする -->
-              <% else %>
-              <li><%= link_to "Sign in", new_user_session_path %></li>
+              <li class="nav-items"><%= link_to "Home", root_path %></li>
+              <li class="nav-items"><%= link_to "AskQuestion", new_question_path %></li>
+              <li class="nav-items"><%= link_to "AnswerQuestons", questions_path %></li>
+              <li class="nav-items"><%= link_to "FindUsers", users_path %></li>
+              <li class="nav-items"><%= link_to "MyProfile", current_user %></li>
+              <div class="btn-group">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Setting
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button class="dropdown-item" type="button"><%= link_to "UpdateMyProfile", edit_user_path(current_user) %></button>
+                  <button class="dropdown-item" type="button"><%= link_to "Setting", edit_user_registration_path(current_user) %></button>
+                  <button class="dropdown-item" type="button"><%= link_to "SignOut", destroy_user_session_path, method: "delete" %></button>
+                </div>
+              </div>
+            <% else %>
+              <li class="nav-items"><%= link_to "About"  %></li>
+              <li class="nav-items"><%= link_to "SignIn", new_user_session_path, class: "btn btn-lg btn-primary" %></li>
             <% end %>
           </ul>
         </nav>
       </div>
-    </header>
-    <div class="container">
-      <%= yield %>
+    </div>
+      <div class="container wrapper">
+        <% flash_messages %>
+        <%= yield %>
+        <div class="push"></div>
+      </div>
+    <div class="footer bg-dark">
+        ここにフッター
     </div>
   </body>
 </html>
