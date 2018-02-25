@@ -14,7 +14,7 @@
     <% if current_user == question.user %>
       <%= link_to "delete", question_path(question), method: :delete, data:{confirm: "You sure?"} %>
     <% else %>
-      <%= link_to "answer", controller: "answers", action: "new", id: question.id %>
+      <%= link_to "Answer!", controller: "answers", action: "new", id: question.id, class: "btn btn-outline-success" %>
     <% end %>
   </div>
 </div>
