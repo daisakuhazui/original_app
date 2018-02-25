@@ -1,9 +1,9 @@
-<h1>Answer Question</h1>
+<h1>Answer Questions</h1>
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <% if @user.follow_count == 0 %>
-      <h2>まだフォローしているユーザーがいません...</h2>
-      <%= link_to "フォローするユーザーを見つける", users_path, class: "btn btn-lg btn-primary btn-block" %>
+      <h2>You are following No One...</h2>
+      <%= link_to "Let's Find Users to Follow !", users_path, class: "btn btn-lg btn-primary btn-block" %>
     <% else %>
       <div class="feeds">
         <%= render partial: 'shared/feed', locals: { feed_items: @feed_items } %>
