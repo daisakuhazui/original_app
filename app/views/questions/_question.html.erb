@@ -7,15 +7,15 @@
     <span class="content">
       <%= question.content %>
     </span>
-
-    <div class="d-flex align-items-center">
-      <p class="form-text text-muted p-2">Posted <%= time_ago_in_words(question.created_at) %> ago.</p>
-      <% if current_user == question.user %>
-        <%= link_to "Delete", question_path(question), method: :delete, data:{ confirm: "You sure?" }, class: "btn btn-outline-danger pull-right ml-auto p-2" %>
-      <% else %>
-        <%= link_to "Answer", { controller: "answers", action: "new", id: question.id }, class: "btn btn-outline-success pull-right ml-auto p-2" %>
-      <% end %>
-    </div>
+      <div class="d-flex align-items-center">
+        <p class="form-text text-muted p-2">Posted <%= time_ago_in_words(question.created_at) %> ago.</p>
+        <% if current_user == question.user %>
+          <%= link_to "See more", { controller: "answers", action: "new", id: question.id }, class: "btn btn-outline-success pull-right ml-auto p-2" %>
+          <%= link_to "Delete", question_path(question), method: :delete, data:{ confirm: "You sure?" }, class: "btn btn-outline-danger pull-right ml-auto p-2" %>
+        <% else %>
+          <%= link_to "Answer", { controller: "answers", action: "new", id: question.id }, class: "btn btn-outline-success  ml-auto p-2" %>
+        <% end %>
+      </div>
 
   </div>
 </div>

@@ -14,5 +14,7 @@ module OriginalApp
       g.javascripts false
       g.stylesheets false
     end
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
