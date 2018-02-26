@@ -1,8 +1,19 @@
-<%= image_tag answer.user.profile_image, size: 50 %>
-<%= link_to answer.user.name, answer.user %>
-@ <%= answer.user.alias_name %>
-<%= answer.content %>
-Posted <%= time_ago_in_words(answer.created_at) %> ago.
-<% if current_user == answer.user %>
-  <%= link_to "delete", answer_path(answer), method: :delete, data:{ confirm: "You sure?" } %>
-<% end %>
+<div class="row">
+  <div class="col-md-2">
+    <%= image_tag answer.user.profile_image, size: 80 %>
+  </div>
+  <div class="col-md-10">
+    <h3><%= link_to answer.user.name, answer.user %>@<%= answer.user.alias_name %></h3>
+    <div>
+      <%= answer.content %>
+    </div>
+
+    <div class="d-flex align-items-center">
+      <p class="form-text text-muted p-2">Posted <%= time_ago_in_words(answer.created_at) %> ago.</p>
+      <% if current_user == answer.user %>
+        <%= link_to "delete", answer_path(answer), method: :delete, data:{ confirm: "You sure?" }, class: "btn btn-outline-danger pull-right ml-auto p-2"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+</br>

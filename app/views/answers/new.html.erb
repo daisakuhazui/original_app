@@ -1,15 +1,24 @@
-<h1>Answers#new</h1>
-<%= image_tag @question.user.profile_image, size: 50 %>
-<%= link_to @question.user.name, @question.user %> @ <%= @question.user.alias_name %>
-<%= @question.content %>
-Posted <%= time_ago_in_words(@question.created_at) %> ago.
+<h1><%= @question.user.name %>'s Question</h1>
 
-<%= form_for(@answer) do |f| %>
-  Your Answer
-  <%= f.text_area :content, placeholder: "Post your answer !" %>
-  <%= f.hidden_field :user_id %>
-  <%= f.hidden_field :question_id %>
-  <%= f.submit "Post answer" %>
-<% end %>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <%= image_tag @question.user.profile_image, size: 90 %></br>
+    <h3><%= link_to @question.user.name, @question.user %>@<%= @question.user.alias_name %></h3>
+    <div class="field">
+      <%= @question.content %>
+        <p class="form-text text-muted">Posted <%= time_ago_in_words(@question.created_at) %> ago.</p>
+      </div>
 
-<%= render partial: 'shared/feed_answers', locals: { feed_answers_items: @feed_answers_items } %>
+      <h3>Your Answer</h3>
+      <%= form_for(@answer) do |f| %>
+        <div class="field">
+          <%= f.text_area :content, placeholder: "Post your answer !",class: "form-control form-control-lg" %>
+          <%= f.hidden_field :user_id %>
+          <%= f.hidden_field :question_id %>
+        </div>
+          <%= f.submit "Post answer", class: "btn btn-lg btn-primary btn-block" %>
+      <% end %>
+  <hr></hr>
+    <%= render partial: 'shared/feed_answers', locals: { feed_answers_items: @feed_answers_items } %>
+  </div>
+</div>

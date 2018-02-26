@@ -1,9 +1,4 @@
 <% provide(:title, @title) %>
-<% if @users.any? %>
-  <% @users.each do |user| %>
-    <p><%= image_tag user.profile_image, size: 50 %></p>
-    <p><%= link_to user.name, user %></p>
-    <p><%= user.alias_name %></p>
-    <p><%= user.introduce %></p>
+  <% if @users.any? %>
+    <%= render partial: 'users/listup_users', locals: { users: @users } %>
   <% end %>
-<% end %>

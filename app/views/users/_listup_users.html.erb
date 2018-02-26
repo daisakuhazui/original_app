@@ -1,0 +1,15 @@
+<% @users.each do |user| %>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <span class="user_profile_image">
+        <%= image_tag user.profile_image, size: 90 %>
+      </span>
+
+      <h3><%= link_to user.name, user %>@<%= user.alias_name %></h3>
+
+      <span class="content">
+        <%= user.introduce %>
+      </span>
+    </div>
+  </div>
+<% end %>

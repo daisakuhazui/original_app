@@ -1,2 +1,2 @@
-<%= link_to "#{@user.follow_count}", show_following_user_path %>following
-<%= link_to "#{@user.followers_count}", show_followers_user_path %>followers
+<p><%= link_to "#{@user.follow_count} following", show_following_user_path, class: "font-weight-bold" %></p>
+<p><%= link_to "#{@user.followers_count} followers", show_followers_user_path, class: "font-weight-bold" %><p>

@@ -1,6 +1,9 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, :set_question
 
+  def new
+  end
+
   def index
     @feed_items = current_user.feed
   end

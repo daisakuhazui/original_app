@@ -1,22 +1,32 @@
 <% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
-<p><%= @user.profile_image %></p>
-<p><%= @user.cover_image %></p>
-<p><%= @user.alias_name %></p>
-<p><%= @user.area %></p>
-<p><%= @user.introduce %></p>
+<p><%= image_tag @user.cover_image, class: "cover_image" %></p>
+<p><%= image_tag @user.profile_image, class: "profile_image" %></p>
 
-<p><%= render 'users/tag_list', tag_list: @user.skill_list %></p>
-<p><%= render 'users/tag_list', tag_list: @user.interest_list %></p>
+<div class="row">
+  <div class="col-md-3">
+    <h1><%= @user.name %> @<%= @user.alias_name %></h1>
+    <h3>Area:<%= @user.area %></h3>
+    <p><%= @user.introduce %></p>
 
-<% if current_user == @user %>
-  <p><%= link_to "Update profile", edit_user_path(current_user) %></p>
-<% end %>
+    <h3>Skills<%= render 'users/tag_list', tag_list: @user.skill_list %></h3>
+    <h3>Interests<%= render 'users/tag_list', tag_list: @user.interest_list %></h3>
 
-<%= render 'shared/stats' %>
-<% if signed_in? %>
-<%= render 'users/follow_form' unless current_user.id == @user.id %>
-<% end %>
-<ol>
-  <%= render @questions %>
-</ol>
+    <h4><%= render 'shared/stats' %></h4>
+
+      <% if current_user == @user %>
+        <p><%= link_to "Update profile", edit_user_path(current_user), class: "btn btn-outline-secondary" %></p>
+      <% end %>
+    <% if signed_in? %>
+      <%= render 'users/follow_form' unless current_user.id == @user.id %>
+    <% end %>
+  </div>
+
+  <div class="col-md-9">
+    <h2><%= @user.name %>'s Questions</h2>
+
+
+    <ol>
+      <%= render @questions %>
+    </ol>
+  </div>
+</div>
