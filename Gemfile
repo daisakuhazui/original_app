@@ -13,7 +13,8 @@ gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "devise"
 gem "jbuilder", "~> 2.5"
-gem "mysql2"
+gem "mysql2", group: :development
+gem 'pg', group: :production
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.4"
 gem "rmagick"
